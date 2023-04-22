@@ -1,0 +1,43 @@
+{% extends "inicio.html" %}
+<form action="{% url 'filterList' %}" method="GET">                            
+    <input type="text" name="diseño" diseño="diseño" placeholder="inserte diseño">                              
+    <input type="submit" value="Buscar por tipo de diseño">
+<table>
+    {% if diseños %}
+    <tr>
+        <th>titulo</th>
+        <th>diseño</th>
+        <th>descripcion</th>
+        <th>fechaPost</th>
+        <th>emailUsuario</th>
+    </tr>
+</table>
+
+
+<table>
+    {% for diseño in diseños %}
+    <tr>
+        <td>
+            {{diseño.titulo}}
+        </td>
+        <td>
+            {{diseño.diseño}}
+        </td>
+        <td>
+            {{diseño.descripcion}}
+        </td>
+        <td>
+            {{diseño.fechaPost}}
+        </td>
+        <td>
+            {{diseño.emailUsuario}}
+        </td>
+    </tr>
+    {% endfor %}
+    
+    {% else %}
+
+    <td>No se encontro ningun archivo</td>
+
+    {% endif %}
+</table>
